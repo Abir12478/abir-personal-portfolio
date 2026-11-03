@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#061713">
+  <meta name="description" content="Md Mahmud Hasan Abir - Personal Portfolio Website">
+  <title>Md Mahmud Hasan Abir | Personal Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #061713;
+      --panel: rgba(17, 43, 34, .72);
+      --green: #16a879;
+      --gold: #d9b76b;
+      --white: #f5f5ee;
+      --muted: #a8b8af;
+      --border: rgba(217,183,107,.22);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background:
+        radial-gradient(ellipse at 15% 10%, #123b2b 0%, transparent 40%),
+        radial-gradient(ellipse at 90% 65%, #102d28 0%, transparent 38%),
+        var(--bg);
+      color: var(--white);
+      font-family: 'Hind Siliguri', sans-serif;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(6,23,19,.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .logo {
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .hero {
+      min-height: 87vh;
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      align-items: center;
+      gap: 40px;
+      padding: 75px 0;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      letter-spacing: 3px;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 66px);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 570px;
+      font-size: 17px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      padding: 11px 23px;
+      border-radius: 30px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      transition: .3s;
+    }
+
+    .btn.primary {
+      background: var(--gold);
+      color: #142018;
+      font-weight: 700;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px #d9b76b30;
+    }
+
+    .orb-wrap {
+      display: grid;
+      place-items: center;
+      perspective: 900px;
+    }
+
+    .orb {
+      width: min(300px, 72vw);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 25%, #397e5c, #103b2b 55%, #071c16);
+      border: 2px solid var(--gold);
+      box-shadow:
+        0 0 40px #d9b76b35,
+        inset 0 0 45px #d9b76b20;
+      animation: float 5s ease-in-out infinite;
+      transform-style: preserve-3d;
+    }
+
+    .orb span {
+      font-family: 'Playfair Display', serif;
+      font-size: 88px;
+      color: var(--gold);
+      text-shadow: 0 0 25px #d9b76b66;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0) rotateY(-8deg); }
+      50% { transform: translateY(-18px) rotateY(8deg); }
+    }
+
+    section { padding: 75px 0; }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title small {
+      color: var(--gold);
+      letter-spacing: 3px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      margin-top: 5px;
+    }
+
+    .section-title h2 span { color: var(--gold); }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 30px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 15px 45px #00000022;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 17px;
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .info {
+      padding: 17px;
+      background: #ffffff08;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .info small {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 5px;
+    }
+
+    .info strong { font-weight: 600; }
+
+    .education-card {
+      max-width: 750px;
+      margin: auto;
+      border-left: 3px solid var(--gold);
+      padding: 8px 0 8px 25px;
+    }
+
+    .education-card h3 {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .education-card p { color: var(--muted); }
+
+    .interest-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .interest {
+      text-align: center;
+      padding: 27px 12px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      transition: .3s;
+    }
+
+    .interest:hover {
+      transform: translateY(-7px);
+      border-color: var(--gold);
+    }
+
+    .interest .emoji { font-size: 35px; }
+    .interest h3 { margin-top: 10px; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .contact-link {
+      padding: 18px;
+      background: #ffffff08;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      transition: .3s;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-link:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .contact-link small {
+      display: block;
+      color: var(--gold);
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 15px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer span { color: var(--gold); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .8s, transform .8s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 700px) {
+      .nav-inner {
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 12px;
+        font-size: 12px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 65px 0;
+      }
+
+      .hero p { margin: auto; }
+      .buttons { justify-content: center; }
+      .orb-wrap { grid-row: 1; }
+
+      .info-grid,
+      .contact-grid { grid-template-columns: 1fr; }
+
+      .interest-grid { grid-template-columns: 1fr; }
+      section { padding: 55px 0; }
+      .panel { padding: 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="logo" href="#home">ABIR.</a>
+      <nav class="nav-links">
+        <a href="#home">হোম</a>
+        <a href="#about">পরিচিতি</a>
+        <a href="#education">শিক্ষা</a>
+        <a href="#interests">আগ্রহ</a>
+        <a href="#contact">যোগাযোগ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" id="home">
+      <div class="hero-content reveal">
+        <div class="eyebrow">WELCOME TO MY PERSONAL WEBSITE</div>
+        <h1>
+          আসসালামু আলাইকুম,
+          <span>আমি মাহমুদ হাসান আবির</span>
+        </h1>
+        <p>
+          জ্ঞান অর্জনের পথে একজন শিক্ষার্থী।
+          ইসলামিক জ্ঞান, বই পড়া ও প্রযুক্তির প্রতি
+          রয়েছে আমার বিশেষ আগ্রহ।
+        </p>
+        <div class="buttons">
+          <a class="btn primary" href="#about">আমার পরিচিতি</a>
+          <a class="btn" href="#contact">যোগাযোগ করুন</a>
+        </div>
+      </div>
+
+      <div class="orb-wrap">
+        <div class="orb">
+          <span>AB</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container reveal">
+        <div class="section-title">
+          <small>WHO AM I</small>
+          <h2>About <span>Me</span></h2>
+        </div>
+
+        <div class="panel">
+          <p class="about-text">
+            আমি মোঃ মাহমুদ হাসান আবির। বর্তমানে হাটহাজারী
+            মাদ্রাসায় মেশকাত জামাতে অধ্যয়নরত। দ্বীনি জ্ঞান
+            অর্জন, সুন্দর চরিত্র গঠন এবং নতুন কিছু শেখার
+            মাধ্যমে নিজেকে উন্নত করার চেষ্টা করি।
+            প্রযুক্তির প্রতিও আমার আগ্রহ রয়েছে।
+          </p>
+
+          <div class="info-grid">
+            <div class="info">
+              <small>পূর্ণ নাম</small>
+              <strong>মোঃ মাহমুদ হাসান আবির</strong>
+            </div>
+            <div class="info">
+              <small>English Name</small>
+              <strong>Md Mahmud Hasan Abir</strong>
+            </div>
+            <div class="info">
+              <small>পিতার নাম</small>
+              <strong>মোঃ আলেক সরকার</strong>
+            </div>
+            <div class="info">
+              <small>ঠিকানা</small>
+              <strong>গাইবান্ধা, বাংলাদেশ 🇧🇩</strong>
+            </div>
+            <div class="info">
+              <small>বর্তমান পরিচয়</small>
+              <strong>মাদ্রাসার শিক্ষার্থী</strong>
+            </div>
+            <div class="info">
+              <small>জামাত</small>
+              <strong>মেশকাত</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container reveal">
+        <div class="section-title">
+          <small>MY ACADEMIC JOURNEY</small>
+          <h2>My <span>Education</span></h2>
+        </div>
+
+        <div class="panel">
+          <div class="education-card">
+            <h3>আল-জামিয়াতুল আহলিয়া দারুল উলূম মঈনুল ইসলাম</h3>
+            <p>হাটহাজারী, চট্টগ্রাম, বাংলাদেশ</p>
+            <p>বর্তমান জামাত: মেশকাত</p>
+            <p>বিষয়: ইসলামী শিক্ষা</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="interests">
+      <div class="container reveal">
+        <div class="section-title">
+          <small>WHAT I LOVE</small>
+          <h2>My <span>Interests</span></h2>
+        </div>
+
+        <div class="interest-grid">
+          <div class="interest">
+            <div class="emoji">🕌</div>
+            <h3>ইসলামিক জ্ঞান</h3>
+            <p>দ্বীনি জ্ঞান অর্জন</p>
+          </div>
+
+          <div class="interest">
+            <div class="emoji">📚</div>
+            <h3>বই পড়া</h3>
+            <p>নতুন কিছু শেখা</p>
+          </div>
+
+          <div class="interest">
+            <div class="emoji">💻</div>
+            <h3>প্রযুক্তি</h3>
+            <p>ডিজিটাল জগৎ সম্পর্কে জানা</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container reveal">
+        <div class="section-title">
+          <small>GET IN TOUCH</small>
+          <h2>Contact <span>Me</span></h2>
+        </div>
+
+        <div class="panel">
+          <div class="contact-grid">
+            <a class="contact-link"
+               href="https://wa.me/8801834024331"
+               target="_blank" rel="noopener">
+              <small>WhatsApp</small>
+              <strong>01834024331</strong>
+            </a>
+
+            <a class="contact-link"
+               href="https://t.me/OTPABIRBD"
+               target="_blank" rel="noopener">
+              <small>Telegram</small>
+              <strong>@OTPABIRBD</strong>
+            </a>
+
+            <a class="contact-link"
+               href="https://www.facebook.com/md.abir.hasan.584902"
+               target="_blank" rel="noopener">
+              <small>Facebook</small>
+              <strong>My Facebook Profile</strong>
+            </a>
+
+            <a class="contact-link"
+               href="mailto:otpabirbd@gmail.com">
+              <small>Email</small>
+              <strong>otpabirbd@gmail.com</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Md Mahmud Hasan Abir.</p>
+    <p>Designed with ❤️ and purpose.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+
+</body>
+            </html>
